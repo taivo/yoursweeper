@@ -1,0 +1,81 @@
+button {
+    padding: 0.5em 1em;
+    border: 1px solid #aba;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+div.ms-grid{
+    display:table;
+    border-collapse:collapse;
+}
+
+div.ms-grid .ms-row{
+    display: table-row;
+}
+
+div.ms-grid .ms-square{
+    display:table-cell;
+    width: 3em;
+    height: 3em;
+    vertical-align:middle;
+    border:1px solid #bbb;
+    cursor: pointer;
+}
+div.ms-grid .ms-square.ms-xray-mine{
+    background-image: url(./mine.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.ms-grid.ms-grid-8x8 .ms-square{
+    width: 4em;
+    height: 4em;
+}
+div.ms-grid.ms-grid-16x16 .ms-square{
+    width: 3em;
+    height: 3em;
+}
+div.ms-grid.ms-grid-24x24 .ms-square{
+    width: 2em;
+    height: 2em;
+}
+
+.bottom-toolbar{
+    padding: 1em 0;
+    height: 50px;
+    display:flex;
+    flex-direction:row;
+    text-align: right;
+}
+.bottom-toolbar .game-status{
+    flex-basis:50%;
+}
+.bottom-toolbar .buttons{
+    flex-basis: 50%;
+}
+.bottom-toolbar .buttons button:not(:last-child){
+    margin-right: 2em;
+}
+.bottom-toolbar img{
+    width: 40px;
+    height: auto;
+}
+
+.game-container{
+    padding:3em;
+    text-align:center;
+}
+.game-container .center-column{
+    display:inline-block;
+    margin:0 auto;
+}
+
+.top-toolbar{
+    text-align:right;
+    padding:1em 0.5em;
+}

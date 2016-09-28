@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minesweeper Yourssweeper Samesweeper</title>
+        <link href='static/app.css' rel='stylesheet' type='text/css'/>
+
+        <script src="libs/angular/angular.js"></script>
+    </head>
+
+    <body ng-app="mineSweeper" ng-controller="appCtrl">
+
+        <div class='game-container' ng-cloak>
+            <div class='center-column'>
+                <div class='top-toolbar'>
+                    <span ng-repeat='level in ::gameLevels' style='margin-right:1em;'>
+                        <input ng-model='input.selectedLevel' type='radio' name='level' value='{{level.value}}' />
+                        {{level.value}} {{level.width}}x{{level.height}}
+                    </span>
+                    <button ng-click='startNewGame()'>New</button>
+                </div>
+
+
+                <grid-display></grid-display>
+
+
+                <div class='bottom-toolbar'>
+                    <div ng-switch='gameStatus' class='game-status'>
+                        <img ng-switch-when='lost' src='static/sad.png'/>
+                        <img ng-switch-when='won' src='static/smile.png' />
+                    </div>
+
+                    <div class='buttons'>
+                        <button ng-mousedown='xrayOn()' ng-mouseup='xrayOff()' ng-disabled='gameStatus === "lost" || gameStatus === "won"'>Reveal</button>
+                        <button ng-click='validateEndGame()' ng-disabled='gameStatus === "lost" || gameStatus === "won"'>Validate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Checklist</h3>
+            <ul>
+                <li>10 mines vs "validate" button contradiction</li>
+                <li>clean up inline css</li>
+                <li>change gridState svc name</li>
+                <li>Test against ff and chrome</li>
+                <li>Unit tests</li>
+                <li>github and ghpages</li>
+            </ul>
+        </div>
+
+        <script src="libs/lodash/dist/lodash.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/svc_indexUtil.js"></script>
+        <script src="js/svc_notifyUtil.js"></script>
+        <script src="js/svc_grid.js"></script>
+        <script src="js/dir_grid.js"></script>
+    </body>
+</html>

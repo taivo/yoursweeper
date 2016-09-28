@@ -1,0 +1,7 @@
+<div class='ms-grid' ng-class='"ms-grid-" + gridSize'>
+    <div ng-repeat='row in rowIndexes' class='ms-row'>
+        <div ng-repeat = 'col in columnIndexes' ng-click='expandTile(col,row)' class='ms-square' ng-class='{"ms-xray-mine": isVisibleMine(col,row)}'>
+            {{getTileValue(col,row)}}
+        </div>
+    </div>
+</div>
