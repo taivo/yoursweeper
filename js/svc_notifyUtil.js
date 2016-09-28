@@ -4,8 +4,8 @@ angular.module('mineSweeper')
         notifyGameEnded: function(status){
             $rootScope.$emit('game-ended', status);
         },
-        notifyNewGame: function(){
-            $rootScope.$emit('new-game');
+        notifyNewGame: function(status){
+            $rootScope.$emit('new-game', status);
         }
     };
 

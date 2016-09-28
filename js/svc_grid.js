@@ -96,7 +96,9 @@ angular.module('mineSweeper')
             gridState.height = levelInfo.height;
             gridState.mineBaseCount = levelInfo.mineBaseCount;
             GridUtil.generateGrid();
-            notifyUtil.notifyNewGame();
+            notifyUtil.notifyNewGame(gridState.status);
+
+            gridState.status = gridState.GAME_INPROGRESS;
 
             //
             // turn off xray on new game
@@ -114,7 +116,6 @@ angular.module('mineSweeper')
             GameUtil.endGame( TileUtil.noMoreUnknown() ? gridState.GAME_WON : gridState.GAME_LOST );
         },
         isGameInProgress: function(){
-            console.log('status', gridState.status);
             return gridState.status === gridState.GAME_INPROGRESS;
         },
         getGameLevels: function(){

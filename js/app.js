@@ -35,5 +35,8 @@ angular.module('mineSweeper', [])
         // when game ends, reveal mines
         gridState.setXray(true);
     });
+    $rootScope.$on('new-game', function(scope, status){
+        $scope.gameStatus = status;
+    })
 
 }]);
